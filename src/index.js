@@ -1,4 +1,4 @@
-import "./index.css";
+import "doodle.css/doodle.css"
 
 import App from "./components/App";
 import { Provider } from "react-redux";

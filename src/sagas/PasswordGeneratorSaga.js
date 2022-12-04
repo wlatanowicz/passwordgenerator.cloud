@@ -27,6 +27,9 @@ function* generateOnePassword() {
   if (config.useDigits) {
     alphabet += "0123456789";
   }
+  if (config.useSpecials) {
+    alphabet += "!@#$%^*-+:;/\\?,.";
+  }
 
   if (alphabet.length === 0) {
     return;

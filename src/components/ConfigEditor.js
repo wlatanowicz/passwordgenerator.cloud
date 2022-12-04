@@ -17,9 +17,10 @@ const ConfigEditor = (props) => {
   const counts = [1, 4, 16, 32];
 
   return (
-    <div>
+    <fieldset>
+        <legend>Configuration</legend>
       <p>
-        <label htmlFor="count">Number of passwords:</label>
+        <label htmlFor="count">Number of passwords</label>&nbsp;
         <select
           id="count"
           value={currentConfig.count}
@@ -37,7 +38,7 @@ const ConfigEditor = (props) => {
         </select>
       </p>
       <p>
-        <label htmlFor="length">Number of characters:</label>
+        <label htmlFor="length">Number of characters</label>&nbsp;
         <select
           id="length"
           value={currentConfig.length}
@@ -56,8 +57,8 @@ const ConfigEditor = (props) => {
       </p>
       <p>
         <label htmlFor="useLowerCaseLetters">
-          Use lower-case letters (a-z):
-        </label>
+          Use lower-case letters (a-z)
+        </label>&nbsp;
         <input
           id="useLowerCaseLetters"
           type="checkbox"
@@ -71,8 +72,8 @@ const ConfigEditor = (props) => {
       </p>
       <p>
         <label htmlFor="useUpperCaseLetters">
-          Use upper-case letters (A-Z):
-        </label>
+          Use upper-case letters (A-Z)
+        </label>&nbsp;
         <input
           id="useUpperCaseLetters"
           type="checkbox"
@@ -85,7 +86,7 @@ const ConfigEditor = (props) => {
         />
       </p>
       <p>
-        <label htmlFor="useDigits">Use digits (0-9):</label>
+        <label htmlFor="useDigits">Use digits (0-9)</label>&nbsp;
         <input
           id="useDigits"
           type="checkbox"
@@ -95,7 +96,21 @@ const ConfigEditor = (props) => {
           }
         />
       </p>
-    </div>
+      <p>
+        <label htmlFor="useSpecials">Use special chars (!@#$%^*-+:;/\?,.)</label>&nbsp;
+        <input
+          id="useSpecials"
+          type="checkbox"
+          checked={currentConfig.useSpecials}
+          onChange={(e) =>
+            dispatch(updateGeneratorConfig("useSpecials", e.target.checked))
+          }
+        />
+      </p>
+      <p>
+        <button onClick={(e) => dispatch(updateGeneratorConfig("generate-clicked", true))}>Generate!</button>
+      </p>
+    </fieldset>
   );
 };
 

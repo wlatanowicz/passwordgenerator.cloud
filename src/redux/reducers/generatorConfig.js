@@ -6,6 +6,7 @@ const initialState = {
   useLowerCaseLetters: true,
   useUpperCaseLetters: true,
   useDigits: true,
+  useSpecials: false,
 };
 
 const generatorConfigReducer = (state = initialState, action) => {

@@ -1,14 +1,15 @@
-import "./App.css";
+import "./App.css"
 
 import ConfigEditor from "./ConfigEditor";
 import PasswordList from "./PasswordList";
 
 function App() {
   return (
-    <div>
+    <main>
+      <h2>Password Generator</h2>
       <ConfigEditor />
       <PasswordList />
-    </div>
+    </main>
   );
 }
 
