@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.css";
 
 import ConfigEditor from "./ConfigEditor";
 import PasswordList from "./PasswordList";

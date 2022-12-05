@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import React from "react";
+import { allPasswords } from "../redux/selectors/passwords";
 import { generatorConfig } from "../redux/selectors/generatorConfig";
 import { updateGeneratorConfig } from "../redux/actions/generatorConfig";
 
 const ConfigEditor = (props) => {
   const dispatch = useDispatch();
   const currentConfig = useSelector(generatorConfig);
+  const passwords = useSelector(allPasswords);
 
   const minLength = 8;
   const maxLength = 64;
@@ -18,7 +20,7 @@ const ConfigEditor = (props) => {
 
   return (
     <fieldset>
-        <legend>Configuration</legend>
+      <legend>Configuration</legend>
       <p>
         <label htmlFor="count">Number of passwords</label>&nbsp;
         <select
@@ -58,7 +60,8 @@ const ConfigEditor = (props) => {
       <p>
         <label htmlFor="useLowerCaseLetters">
           Use lower-case letters (a-z)
-        </label>&nbsp;
+        </label>
+        &nbsp;
         <input
           id="useLowerCaseLetters"
           type="checkbox"
@@ -73,7 +76,8 @@ const ConfigEditor = (props) => {
       <p>
         <label htmlFor="useUpperCaseLetters">
           Use upper-case letters (A-Z)
-        </label>&nbsp;
+        </label>
+        &nbsp;
         <input
           id="useUpperCaseLetters"
           type="checkbox"
@@ -97,7 +101,10 @@ const ConfigEditor = (props) => {
         />
       </p>
       <p>
-        <label htmlFor="useSpecials">Use special chars (!@#$%^*-+:;/\?,.)</label>&nbsp;
+        <label htmlFor="useSpecials">
+          Use special chars (!@#$%^*-+:;/\?,.)
+        </label>
+        &nbsp;
         <input
           id="useSpecials"
           type="checkbox"
@@ -108,7 +115,13 @@ const ConfigEditor = (props) => {
         />
       </p>
       <p>
-        <button onClick={(e) => dispatch(updateGeneratorConfig("generate-clicked", true))}>Generate!</button>
+        <button
+          onClick={(e) =>
+            dispatch(updateGeneratorConfig("generate-clicked", true))
+          }
+        >
+          {passwords.length > 0 ? "Regenerate!" : "Generate!"}
+        </button>
       </p>
     </fieldset>
   );
