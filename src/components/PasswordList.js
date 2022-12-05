@@ -20,7 +20,7 @@ const PasswordItem = ({ password }) => {
       onClick={() => passwordClicked()}
       title="Click to copy to clipboard"
     >
-      {password} {copied && "copied"}
+      {password} {copied && <span className="copied">copied</span>}
     </p>
   );
 };
