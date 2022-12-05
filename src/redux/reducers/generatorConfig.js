@@ -1,7 +1,7 @@
 import { UPDATE_GENERATOR_CONFIG } from "../actionTypes";
 
 const initialState = {
-  count: 1,
+  count: 4,
   length: 16,
   useLowerCaseLetters: true,
   useUpperCaseLetters: true,
