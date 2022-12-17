@@ -8,4 +8,8 @@ main {
   body {
     font-size: 0.75rem;
   }
+
+  select {
+    min-width: 75px;
+  }
 }
